@@ -1,5 +1,5 @@
 # NooLite-PR1132-CLI
-CLI для управления NooLite ethernet-шлюзом PR1132 через его Http API.
+Форк AlekseevAV NooLite-PR1132-CLI (https://github.com/AlekseevAV/NooLite-PR1132-CLI) для управления NooLite ethernet-шлюзом PR1132 через его Http API.
 
 ### Описание
 
