@@ -1,14 +1,17 @@
 # NooLite-PR1132-CLI
 Форк [AlekseevAV NooLite-PR1132-CLI](https://github.com/AlekseevAV/NooLite-PR1132-CLI) для управления NooLite ethernet-шлюзом PR1132 в Homebridge через Http API. Для работы датчиков температуры необходимо поставить Homebridge плагин homebridge-temperature-cmd.
 
-Пример добавление датчика температуры:
+Пример добавление датчиков температуры:
 
 "accessories": [
         {
             "accessory": "TemperatureCMD",
             "name": "Первый датчик температуры",
             "command": "sudo python /home/user/NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
-        }
+        },
+         { "accessory": "TemperatureCMD", 
+         "name": "Первый датчик температуры",
+         "command": "sudo python /home/user/NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
 ]
 
 ### Описание
@@ -62,6 +65,11 @@ OK
 # ответ приходит в json формате
 $ python noolite_cli.py -sns 0
 {"state": "Датчик привязан, ожидается обновление информации", "temperature": 21.1, "humidity": 56}
+
+# Получение информации с датчика, привязанного к 0 каналу
+# без лишнего текста, только числовое значение
+$ python noolite_cli.py -hsns 0
+21.1
 
 # Задать RGB-контроллеру SD111-180, привязанному к 3 каналу соответствующую яркость 
 # на каждый из цветовых каналов: d0 - красный, d1 - зеленый, d2 - синий
