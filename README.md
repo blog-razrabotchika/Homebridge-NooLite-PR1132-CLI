@@ -7,11 +7,11 @@
         {
             "accessory": "TemperatureCMD",
             "name": "Первый датчик температуры",
-            "command": "sudo python /home/user/NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
+            "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
         },
          { "accessory": "TemperatureCMD", 
          "name": "Второй датчик температуры",
-         "command": "sudo python /home/user/NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
+         "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
 ]
 
 ### Описание
@@ -38,8 +38,8 @@
 3. Создать `conf_cli.yaml` на основе `conf_cli_sample.yaml`
 
 ```
-$ git clone https://github.com/AlekseevAV/NooLite-PR1132-CLI.git
-$ cd NooLite-PR1132-CLI
+$ git clone https://github.com/blog-razrabotchika/Homebridge-NooLite-PR1132-CLI.git
+$ cd Homebridge-NooLite-PR1132-CLI
 $ pip install -r requirements.txt
 ```
 
