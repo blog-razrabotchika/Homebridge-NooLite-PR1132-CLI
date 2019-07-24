@@ -7,12 +7,12 @@
         {
             "accessory": "TemperatureCMD",
             "name": "Первый датчик температуры",
-            "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
+            "command": "sudo python3 /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
         },
         {
             "accessory": "TemperatureCMD", 
             "name": "Второй датчик температуры",
-            "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
+            "command": "sudo python3 /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
 ]
 ```
 
@@ -56,26 +56,26 @@ $ pip install -r requirements.txt
 ### Пример использования
 ```
 # Включение силового блока, привязанного к 0 каналу
-$ python noolite_cli.py -ch 0 -cmd 2
+$ python3 noolite_cli.py -ch 0 -cmd 2
 OK
 
 # Выключение силового блока, привязанного к 0 каналу
-$ python noolite_cli.py -ch 0 -cmd 0
+$ python3 noolite_cli.py -ch 0 -cmd 0
 OK
 
 # Получение информации с датчика, привязанного к 0 каналу
 # ответ приходит в json формате
-$ python noolite_cli.py -sns 0
+$ python3 noolite_cli.py -sns 0
 {"state": "Датчик привязан, ожидается обновление информации", "temperature": 21.1, "humidity": 56}
 
 # Получение информации с датчика, привязанного к 0 каналу
 # без лишнего текста, только числовое значение
-$ python noolite_cli.py -hsns 0
+$ python3 noolite_cli.py -hsns 0
 21.1
 
 # Задать RGB-контроллеру SD111-180, привязанному к 3 каналу соответствующую яркость 
 # на каждый из цветовых каналов: d0 - красный, d1 - зеленый, d2 - синий
-$ python noolite_cli.py -ch 3 -cmd 6 -fmt 3 -d0 247 -d1 255 -d2 247
+$ python3 noolite_cli.py -ch 3 -cmd 6 -fmt 3 -d0 247 -d1 255 -d2 247
 ```
 
 ### MQTT 
