@@ -51,7 +51,7 @@ def get_args():
 
 if __name__ == '__main__':
     # Получаем конфиг из файла
-    config = yaml.load(open(os.path.join(SCRIPT_PATH, 'conf_cli.yaml')))
+    config = yaml.full_load(open(os.path.join(SCRIPT_PATH, 'conf_cli.yaml')))
 
     # Создаем объект для работы с NooLite
     noolite_api = NooLiteApi(
