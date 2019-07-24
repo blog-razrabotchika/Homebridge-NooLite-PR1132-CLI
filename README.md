@@ -1,5 +1,5 @@
 # Homebridge-NooLite-PR1132-CLI
-Форк [AlekseevAV NooLite-PR1132-CLI](https://github.com/AlekseevAV/NooLite-PR1132-CLI) для управления NooLite ethernet-шлюзом PR1132 в Homebridge через Http API. Для работы датчиков температуры необходимо поставить Homebridge плагин homebridge-temperature-cmd.
+Форк репозитория [AlekseevAV NooLite-PR1132-CLI](https://github.com/AlekseevAV/NooLite-PR1132-CLI) для управления NooLite ethernet-шлюзом PR1132 в Homebridge через HTTP API. Для работы датчиков температуры необходимо поставить Homebridge плагин homebridge-temperature-cmd. Обновлено под работу с Python 3.
 
 Пример добавление датчиков температуры:
 ```json
