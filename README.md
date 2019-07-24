@@ -75,3 +75,6 @@ $ python noolite_cli.py -hsns 0
 # на каждый из цветовых каналов: d0 - красный, d1 - зеленый, d2 - синий
 $ python noolite_cli.py -ch 3 -cmd 6 -fmt 3 -d0 247 -d1 255 -d2 247
 ```
+
+### MQTT 
+#В конце файле noolite_cli.py есть пример публикации значений при запуске $ python noolite_cli.py -hsns 0.
