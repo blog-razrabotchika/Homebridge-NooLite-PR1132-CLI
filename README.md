@@ -80,5 +80,7 @@ $ python3 noolite_cli.py -ch 3 -cmd 6 -fmt 3 -d0 247 -d1 255 -d2 247
 
 ### MQTT 
 ```
-# В конце файле noolite_cli.py есть пример публикации значений при запуске с аргументом -hsns $ python3 noolite_cli.py -hsns 0.
+# В конце файле noolite_cli.py есть пример публикации значений при запуске с аргументом -hsns 
+
+$ python3 noolite_cli.py -hsns 0.
 ```
