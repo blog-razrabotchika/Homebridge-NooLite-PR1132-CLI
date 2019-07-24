@@ -67,8 +67,8 @@ if __name__ == '__main__':
     # Если есть аргумент sns, то возвращаем информацию с датчиков
 if 'sns' in args:
            sens_list = noolite_api.get_sens_data()
-        send_data = sens_list[args['sns']]
-        print(json.dumps({
+           send_data = sens_list[args['sns']]
+           print(json.dumps({
             'temperature': send_data.temperature,
             'humidity': send_data.humidity,
             'state': send_data.state,
