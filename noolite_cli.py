@@ -90,6 +90,6 @@ if 'hsns' in args:
         msg1 = "mqtt/noolite/sens"
         msg2 = str(args['hsns'])
 #       client = mqtt.Client("Server")
-#       client.connect("192.168.1.222", 1883, 60)
+#       client.connect("192.168.1.200", 1883, 60)
 #       client.publish(msg1+msg2, send_data.temperature)
         print(send_data.temperature)
