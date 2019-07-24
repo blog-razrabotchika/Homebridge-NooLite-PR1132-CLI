@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 NooLite API wrapper
 """
@@ -29,8 +31,7 @@ class NooLiteApi:
 
     def get_sens_data(self):
         """Получение и прасинг xml данных с датчиков
-
-        :return: список NooLiteSens объектов для каждого датчика
+         :return: список NooLiteSens объектов для каждого датчика
         :rtype: list
         """
         response = self._send_request('{}/sens.xml'.format(self.base_api_url))
@@ -45,7 +46,7 @@ class NooLiteApi:
         for sens_number in range(4):
             sens_list.append(NooLiteSens(
                 response_xml_root.find('snst{}'.format(sens_number)).text,
-                response_xml_root.find('snsh{}'.format(sens_number)).text,
+                              response_xml_root.find('snsh{}'.format(sens_number)).text,
                 sens_states.get(int(response_xml_root.find('snt{}'.format(sens_number)).text))
             ))
         return sens_list
@@ -62,6 +63,24 @@ class NooLiteApi:
 
     def _send_request(self, url, **kwargs):
         """Отправка запроса к NooLite и обработка возвращаемого ответа
+        
+        Отправка запроса к url с параметрами из kwargs
+        :param url: url для запроса
+        :type url: str
+        :return: response от NooLite или исключение
+        """
+
+        try:
+            response = requests.get(url, auth=HTTPBasicAuth(self.login, self.password),
+                                    timeout=self.request_timeout, **kwargs)
+        except ConnectTimeout as e:
+            print(e)
+            raise NooLiteConnectionTimeout('Connection timeout: {}'.format(self.request_timeout))
+        except ConnectionError as e:
+            print(e)
+            raise NooLiteConnectionError('Connection timeout: {}'.format(self.request_timeout))
+            
+            """Отправка запроса к NooLite и обработка возвращаемого ответа
 
         Отправка запроса к url с параметрами из kwargs
         :param url: url для запроса
