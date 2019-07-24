@@ -9,9 +9,10 @@
             "name": "Первый датчик температуры",
             "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0"
         },
-         { "accessory": "TemperatureCMD", 
-         "name": "Второй датчик температуры",
-         "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
+        {
+            "accessory": "TemperatureCMD", 
+            "name": "Второй датчик температуры",
+            "command": "sudo python /home/user/Homebridge-NooLite-PR1132-CLI/noolite_cli.py -hsns 0" }
 ]
 ```
 
