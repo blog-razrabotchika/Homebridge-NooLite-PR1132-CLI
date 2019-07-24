@@ -1,3 +1,6 @@
+
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 NooLite PR1132 command line interface
 """
@@ -10,6 +13,7 @@ import argparse
 import yaml
 
 from noolite_api import NooLiteApi
+import paho.mqtt.client as mqtt
 
 
 SCRIPT_PATH = os.path.dirname(os.path.realpath(__file__))
@@ -33,6 +37,7 @@ def get_args():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-sns', type=int, help='Получить данные с указанного датчика')
+    parser.add_argument('-hsns', type=int, help='Получить данные с указанного датчика в текстовом формате')
     parser.add_argument('-ch',  type=int, help='Адрес канала')
     parser.add_argument('-cmd', type=int, help='Команда')
     parser.add_argument('-br',  type=int, help='Абсолютная яркость')
@@ -43,7 +48,6 @@ def get_args():
     parser.add_argument('-d3',  type=int, help='Байт данных 3')
     return {key: value for key, value in vars(parser.parse_args()).items()
             if value is not None}
-
 
 if __name__ == '__main__':
     # Получаем конфиг из файла
@@ -61,14 +65,31 @@ if __name__ == '__main__':
     logger.debug('Args: {}'.format(args))
 
     # Если есть аргумент sns, то возвращаем информацию с датчиков
-    if 'sns' in args:
-        sens_list = noolite_api.get_sens_data()
+if 'sns' in args:
+           sens_list = noolite_api.get_sens_data()
         send_data = sens_list[args['sns']]
         print(json.dumps({
             'temperature': send_data.temperature,
             'humidity': send_data.humidity,
             'state': send_data.state,
         }))
-    else:
-        logger.info('Send command to noolite: {}'.format(args))
-        print(noolite_api.send_command_to_channel(args))
+#else:
+ #       logger.info('Send command to noolite: {}'.format(args))
+  #      print(noolite_api.send_command_to_channel(args))
+
+if 'hsns' in args:
+        sens_list = noolite_api.get_sens_data()
+        send_data = sens_list[args['hsns']]
+        jsonStr = json.dumps({
+            'temperature': send_data.temperature,
+            'humidity': send_data.humidity,
+                        'state': send_data.state,
+        })
+        to_python = json.loads(jsonStr)
+        string = str(to_python['temperature'])
+        msg1 = "mqtt/noolite/sens"
+        msg2 = str(args['hsns'])
+#       client = mqtt.Client("Server")
+#       client.connect("192.168.1.222", 1883, 60)
+#       client.publish(msg1+msg2, send_data.temperature)
+        print(send_data.temperature)
